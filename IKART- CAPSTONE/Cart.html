@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart - IKART</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Ikart.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <img src="IKART.png" alt="IKART Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="About.html">About us</a></li>
+        <li><a href="Product.html">Product</a></li>
+        <li><a href="Purchase confirmation.html">Purchase Confirmation</a></li>
+        <li><a href="Cart.html">🛒</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+  <h1>Shopping Cart</h1>
+
+  <section id="cart-items" aria-label="Cart Items">
+    <!-- Dynamically filled with JS -->
+  </section>
+
+  <section id="prescription-section" aria-label="Prescription Upload">
+    <h2>Prescription Upload</h2>
+    <input type="file" id="prescription-upload" accept="image/*,.pdf" />
+    <p id="upload-status" role="alert" aria-live="polite"></p>
+  </section>
+
+  <section id="promo-section" aria-label="Promo Code">
+    <h2>Promo Code</h2>
+    <input type="text" id="promo-code" placeholder="Enter promo code" />
+    <button id="apply-promo">Apply</button>
+    <p id="promo-message" role="alert" aria-live="polite"></p>
+  </section>
+
+  <section id="delivery-section" aria-label="Delivery Details">
+    <h2>Delivery Details</h2>
+    <form id="delivery-form">
+      <label for="address">Delivery Address:</label>
+      <textarea id="address" required rows="3" placeholder="Enter delivery address"></textarea>
+
+      <label for="delivery-date">Schedule Delivery Date & Time:</label>
+      <input type="datetime-local" id="delivery-date" required />
+
+      <label for="instructions">Delivery Instructions (optional):</label>
+      <textarea id="instructions" rows="2" placeholder="Leave at door, call on arrival, etc."></textarea>
+    </form>
+  </section>
+
+  <section id="payment-section" aria-label="Payment Options">
+    <h2>Payment</h2>
+    <div class="payment-methods">
+      <label><input type="radio" name="payment" value="credit" checked /> Credit Card</label>
+      <label><input type="radio" name="payment" value="ewallet" /> E-Wallet</label>
+      <label><input type="radio" name="payment" value="cod" /> Cash on Delivery</label>
+    </div>
+    <div id="payment-info">
+      <!-- Placeholder for payment details form if needed -->
+      <p>Secure payment via trusted gateways. <span class="ssl-badge">SSL Secured</span></p>
+    </div>
+  </section>
+
+  <section id="support-section" aria-label="Customer Support & FAQ">
+    <h2>Need Help?</h2>
+    <p>Chat with us: <a href="chat.html">Live Chat</a></p>
+    <p>Call Support: <a href="tel:+18001234567">1-800-123-4567</a></p>
+    <p><a href="faq.html">FAQ</a></p>
+  </section>
+
+  <section id="order-summary" aria-label="Order Summary">
+    <h2>Order Summary</h2>
+    <div id="summary-details">
+      <!-- Filled by JS -->
+    </div>
+    <label>
+      <input type="checkbox" id="terms-checkbox" />
+      I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a> and understand the medication use policies.
+    </label>
+    <button id="place-order" disabled>Place Order</button>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© 2025 IKART Medical Store. All rights reserved.</p>
+</footer>
+
+<script src="cart.js"></script>
+</body>
+</html>
+
+

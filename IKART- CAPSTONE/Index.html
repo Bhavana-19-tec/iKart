@@ -1,0 +1,323 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IKART - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Ikart.css" />
+  <style>
+    .newsletter-section {
+      background-color: #0a1a40;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .newsletter-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .newsletter-section p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .newsletter-form input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      max-width: 90%;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+    }
+    .newsletter-form button {
+      padding: 10px 20px;
+      background-color: #ffcc00;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .dropdown-nav {
+      margin-left: 15px;
+    }
+    .dropdown-nav select {
+      padding: 6px;
+      font-family: 'Inria Serif', serif;
+    }
+    .testimonials {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .testimonials h3 {
+      font-size: 28px;
+      color: #0a1a40;
+      margin-bottom: 30px;
+    }
+
+    .testimonial-list {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .testimonial {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    .testimonial p {
+      margin: 15px 0;
+      font-style: italic;
+    }
+
+    .testimonial span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="IKART.png" alt="IKART Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Product.html">Product</a></li>
+        <li><a href="Purchase confirmation.html">Purchase Confirmation</a></li>
+        <li><a href="Cart.html">🛒</a></li>
+        <li class="dropdown-nav">
+          <select onchange="location = this.value;">
+            <option value="#">Pharma/Prescription</option>
+            <option value="drug-database.html">Drug Database</option>
+            <option value="directions.html">Directions for Use</option>
+            <option value="disease.html">Disease</option>
+            <option value="forms.html">Forms</option>
+            <option value="health.html">Health</option>
+            <option value="lab-tests.html">Laboratory Tests</option>
+            <option value="natural-products.html">Natural Health Products</option>
+            <option value="nutrition.html">Nutrition</option>
+            <option value="recreational-drugs.html">Recreational Drugs</option>
+            <option value="travel-destination.html">Travel Destination</option>
+            <option value="travel-info.html">Travel Information</option>
+          </select>
+        </li>
+        <ul class="nav-actions">
+          <nav>
+            <ul>
+              <li><a href="signin.html">Sign In</a></li>
+              <li><a href="Index.html">Login</a></li>
+            </ul>
+          </nav>
+        </ul>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-content">
+        <p class="offer">SPECIAL OFFERS! SIGN UP FOR EMAIL</p>
+        <h1>Get Medicines Instantly</h1>
+        <h2>Fast. Reliable. Delivered to your doorstep In 15 Minutes.</h2>
+        <!-- 15-Minute Delivery Banner -->
+<section class="fast-delivery-banner">
+  <div class="delivery-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Fast Delivery Icon">
+  </div>
+  <div class="delivery-text">
+    <h2>“Your Health, Delivered Swiftly.”</h2>
+    <p>Experience lightning-fast delivery of essential medicines right to your doorstep  — safe, reliable, and just when you need them most. Because your well-being can’t wait.</p>
+  </div>
+</section>
+
+        <button class="btn">ADD TO CART</button>
+      </div>
+    </div>
+  </section>
+
+   <section class="testimonials">
+    <h3>What Our Customers Say</h3>
+    <div class="testimonial-list">
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="John D.">
+        <p>“Got my medicine within 30 minutes! Very reliable.”</p>
+        <span>— John D.</span>
+      </div>
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah M.">
+        <p>“Super easy to order and great customer support.”</p>
+        <span>— Sarah M.</span>
+      </div>
+      <div class="testimonial">
+        <img src="premium_photo-1661779396815-56fe1ca9877c.jpeg" alt="Raj P.">
+        <p>“Love how fast and convenient it is. Saved me a trip to the pharmacy.”</p>
+        <span>— Raj P.</span>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Products -->
+  <section class="featured">
+    <h2>Featured Medicine</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="download (15).jpeg" alt="Advil">
+        <p class="product-title">Advil 10g</p>
+        <p>$9.99</p>
+        <button>Quick ADD</button>
+      </div>
+      <div class="product-card">
+        <img src="ppe-kit-latest.jpg" alt="PPE Kits">
+        <p class="product-title">P.P.E KITS</p>
+        <p>$79.79</p>
+        <button>Quick ADD</button>
+      </div>
+      <div class="product-card">
+        <img src="images.jpg" alt="Huggies">
+        <p class="product-title">Huggies-360</p>
+        <p>$16.99</p>
+        <button>Quick ADD</button>
+      </div>
+    </div>
+    <div class="shipping-info">
+      <p class="free-shipping">FREE SHIPPING ON ORDERS $150+</p>
+      <p class="call-us">CALL TOLL FREE: 1-855-422-6633</p>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <h2>Subscribe to our Newsletter</h2>
+    <p>Stay updated with the latest health products, offers, and news.</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+  <!-- Add this in the body where you want the promo to appear -->
+<section class="app-promo">
+  <div class="app-content">
+    <h3>📱 Download our app for faster ordering</h3>
+    <p>Order medicines on the go, track deliveries, and get exclusive app-only discounts.</p>
+    <div class="app-buttons">
+      <a href="https://www.apple.com/app-store/" target="_blank">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+      </a>
+      <a href="https://play.google.com/store" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- CHAT BOX HTML, CSS & JS -->
+
+<!-- Place this at the bottom of your <body> tag -->
+<div class="chat-container" id="chatContainer">
+  <div class="chat-header" onclick="toggleChat()">Need Help? 💬</div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-messages" id="chatMessages">
+      <p><strong>Support:</strong> Hello! How can we assist you today?</p>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add these styles in a <style> tag inside the <head> OR in your CSS file -->
+<style>
+  .chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    font-family: 'Inria Serif', serif;
+    z-index: 1000;
+  }
+
+  .chat-header {
+    background-color: #003366;
+    color: white;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .chat-body {
+    display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .chat-messages {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .chat-input-area {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+
+  .chat-input-area input[type="text"] {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+  }
+
+  .chat-input-area button {
+    padding: 10px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+</style>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        Accessibility | Forced Labour & Child Labour Report  |<br> Privacy and Confidentiality | Terms of Use | <br> Pharmacies | Owner Zone
+      </div>
+      <p class="footer-copy"> <br> © 2025 InstantKart. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="Index.html" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="Index.html" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="Index.html" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</body>
+</html>

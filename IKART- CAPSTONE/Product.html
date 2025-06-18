@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IKART - Product Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Ikart.css">
+  <style>
+    body {
+      font-family: 'Inria Serif', serif;
+    }
+    .filters {
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .search-bar, select {
+      padding: 8px;
+      font-size: 16px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    .product-card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .product-card img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-card button {
+      margin: 5px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .add-btn {
+      background-color: #28a745;
+      color: white;
+    }
+    .sub-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+    .buy-later-btn {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="IKART.png" alt="IKART Logo" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="Index.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Product.html" class="active">Product</a></li>
+      <li><a href="buy-later.html">Buy Later 🕒</a></li>
+      <li><a href="Cart.html">🛒</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="filters">
+  <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search Products">
+  <label for="ageGroup">Filter by Age Group:</label>
+  <select id="ageGroup">
+    <option value="all">All</option>
+    <option value="children">Children</option>
+    <option value="adult">Adult</option>
+    <option value="elderly">Elderly</option>
+  </select>
+</section>
+
+<main class="product-grid" id="productGrid"></main>
+
+<script>
+const products = [
+  { name: "1st Response", price: 20, image: "download (3).jpg", age: "adult" },
+  { name: "NeoCitran", price: 13.5, image: "download.jpg", age: "adult" },
+  { name: "Reactine 10mg", price: 40, image: "download (1).jpg", age: "adult" },
+  { name: "White Bandage", price: 3.9, image: "download (5).jpg", age: "all" },
+  { name: "Brown Bandage", price: 5.8, image: "download (4).jpg", age: "all" },
+  { name: "Pregnancy Test", price: 9.85, image: "laura-ohlman-ongv_fQjtMA-unsplash.jpg", age: "adult" },
+  { name: "Probiotic 20mg", price: 22.89, image: "download (3).png", age: "elderly" },
+  { name: "Benadryl", price: 12.78, image: "download (2).jpg", age: "children" }
+];
+
+let cart = JSON.parse(localStorage.getItem('cart')) || {};
+const grid = document.getElementById("productGrid");
+const searchInput = document.getElementById("searchInput");
+const ageGroup = document.getElementById("ageGroup");
+
+function renderProducts() {
+  const search = searchInput.value.toLowerCase();
+  const age = ageGroup.value;
+  grid.innerHTML = '';
+
+  products.forEach(product => {
+    const quantity = cart[product.name] || 0;
+    if (
+      product.name.toLowerCase().includes(search) &&
+      (age === 'all' || product.age === age || product.age === 'all')
+    ) {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name} - $${product.price}</h3>
+        <button class="sub-btn" onclick="updateCart('${product.name}', -1)">➖</button>
+        <button class="add-btn" onclick="updateCart('${product.name}', 1)">➕</button>
+        <button class="buy-later-btn" onclick="buyLater('${product.name}')">🕒 Buy Later</button>
+        <p id="count-${product.name}">In Cart: ${quantity}</p>
+      `;
+      grid.appendChild(card);
+    }
+  });
+}
+
+function updateCart(name, change) {
+  cart[name] = cart[name] || 0;
+  cart[name] += change;
+  if (cart[name] < 0) cart[name] = 0;
+  if (cart[name] > 5) {
+    cart[name] = 5;
+    alert("Maximum 5 items allowed per product.");
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  document.getElementById(`count-${name}`).innerText = `In Cart: ${cart[name]}`;
+}
+
+function buyLater(name) {
+  const buyLaterList = JSON.parse(localStorage.getItem('buyLaterList')) || [];
+  if (!buyLaterList.includes(name)) {
+    buyLaterList.push(name);
+    localStorage.setItem('buyLaterList', JSON.stringify(buyLaterList));
+    alert(`${name} added to Buy Later.`);
+  } else {
+    alert(`${name} is already in Buy Later.`);
+  }
+}
+function buyLater(name) {
+  const product = products.find(p => p.name === name);
+  let buyLaterList = JSON.parse(localStorage.getItem('buyLaterList')) || [];
+
+  // Prevent duplicates
+  if (!buyLaterList.some(item => item.name === name)) {
+    buyLaterList.push(product);
+    localStorage.setItem('buyLaterList', JSON.stringify(buyLaterList));
+    alert(`${name} added to Buy Later list.`);
+  } else {
+    alert(`${name} is already in Buy Later list.`);
+  }
+}
+
+searchInput.addEventListener('input', renderProducts);
+ageGroup.addEventListener('change', renderProducts);
+
+renderProducts();
+</script>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      Accessibility | Forced Labour & Child Labour Report  |<br> Privacy and Confidentiality | Terms of Use | <br> Pharmacies | Owner Zone
+    </div>
+    <p class="footer-copy"> <br> © 2025 InstantKart. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="Index.html" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="Index.html" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="Index.html" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
